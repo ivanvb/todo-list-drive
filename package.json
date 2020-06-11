@@ -40,6 +40,9 @@
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^2.2.0",
+        "@types/gapi": "^0.0.39",
+        "@types/gapi.auth2": "^0.0.52",
+        "@types/gapi.client.drive": "^3.0.7",
         "autoprefixer": "^9.8.0",
         "concurrently": "^5.2.0",
         "postcss-cli": "^7.1.1",

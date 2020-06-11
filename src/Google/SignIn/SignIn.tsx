@@ -3,7 +3,9 @@ import React from 'react';
 const SignIn = () => {
     return (
         <div>
-            <button>Sign In</button>
+            <button className="w-20 h-8 bg-gray-200 border border-gray-500 rounded-md">
+                Sign In
+            </button>
         </div>
     );
 };
