@@ -26,6 +26,7 @@ export class GoogleAuth {
             apiKey: process.env.REACT_APP_API_KEY,
             clientId: process.env.REACT_APP_CLIENT_ID,
             scope: this.SCOPES,
+            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
         });
         this.updateLoggedStatus();
         gapi.auth2.getAuthInstance().isSignedIn.listen(() => {
