@@ -6,7 +6,7 @@ type Props = {
 };
 const TodoList: React.FC<Props> = ({ todos }) => {
     return (
-        <ul>
+        <ul className="border border-gray-800 rounded-md overflow-hidden max-h-full bg-white h-80 overflow-y-auto">
             {todos.map((todo, i) => (
                 <TodoItem key={i} {...todo} />
             ))}

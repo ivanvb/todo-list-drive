@@ -10,14 +10,14 @@ function App() {
     const { loggedStatus, setLoggedStatus } = useContext(UserContext);
     const auth = new GoogleAuth(setLoggedStatus);
     return (
-        <>
+        <div className="flex-1">
             {loggedStatus === LOGGED_STATUS.LOGGED_IN && <Navbar signOut={auth.signOut} />}
-            <div className="flex justify-center items-center h-full">
+            <div className="flex justify-center items-center bg-gray-200 h-full">
                 {loggedStatus === LOGGED_STATUS.LOADING && <p>Loading</p>}
                 {loggedStatus === LOGGED_STATUS.LOGGED_OUT && <SignIn signIn={auth.signIn} />}
                 {loggedStatus === LOGGED_STATUS.LOGGED_IN && <HomeScreen />}
             </div>
-        </>
+        </div>
     );
 }
 

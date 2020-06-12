@@ -9,14 +9,22 @@ const HomeScreen = () => {
             const id = await GoogleDrive.getSavedData();
             const response = await GoogleDrive.getFileContent(id);
             const data = JSON.parse(response.body);
-
             setTodos(data);
         }
 
         getSavedData();
     }, []);
 
-    return <>{todos !== null && <Todo todos={todos} />}</>;
+    return (
+        <>
+            {todos !== null && (
+                <div>
+                    <h1 className="text-4xl font-black text-gray-800 text-center">ToDo List</h1>
+                    <Todo todos={todos} />
+                </div>
+            )}
+        </>
+    );
 };
 
 export default HomeScreen;

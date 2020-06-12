@@ -4,8 +4,16 @@ module.exports = {
         content: ['./src/**/*.tsx', './src/**/*.ts', './src/**/*.jsx', './src/**/*.js'],
     },
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                '80': '20rem',
+                '128': '32rem',
+            },
+        },
     },
-    variants: {},
+    variants: {
+        opacity: ['responsive', 'hover', 'focus', 'disabled'],
+        cursor: ['responsive', 'hover', 'focus', 'disabled'],
+    },
     plugins: [],
 };
