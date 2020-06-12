@@ -1,5 +1,6 @@
 export class GoogleDrive {
     private static FILENAME = 'data.json';
+    private static id: string = '';
 
     public static async getSavedData(): Promise<string> {
         const fileList = await gapi.client.drive.files.list({
@@ -64,7 +65,11 @@ export class GoogleDrive {
         return fileData;
     }
 
-    public static async updateFileContent(id: string, data: object) {
+    public static setId(id: string) {
+        this.id = id;
+    }
+
+    public static async updateFileContent(data: object, id: string = this.id) {
         const req = await gapi.client.request({
             path: '/upload/drive/v3/files/' + id,
             method: 'PATCH',
@@ -74,10 +79,10 @@ export class GoogleDrive {
             body: JSON.stringify(data),
         });
 
-        console.log(req);
+        return req;
     }
 
-    private static async deleteFile(id: string) {
+    public static async deleteFile(id: string) {
         const req = await gapi.client.drive.files.delete({ fileId: id });
         return req;
     }

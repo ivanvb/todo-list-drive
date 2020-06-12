@@ -9,7 +9,6 @@ type Props = {
     disabled?: boolean;
 };
 const Button: React.FC<Props> = (props) => {
-    console.log(props);
     return (
         <div className={props.containerClasses}>
             <button

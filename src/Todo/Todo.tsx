@@ -13,10 +13,7 @@ const Todo: React.FC<Props> = ({ todos }) => {
 
     function submit(e: SyntheticEvent) {
         e.preventDefault();
-        GoogleDrive.updateFileContent('1-U-pB9O1i1rjxornAQpW_YrSGv32MGln3UZxlbkwlwwNF_Ktjg', [
-            ...todoItems,
-            { name: inputValue, completed: false },
-        ]);
+        GoogleDrive.updateFileContent([...todoItems, { name: inputValue, completed: false }]);
         setTodoItems((prev) => {
             return [...prev, { name: inputValue, completed: false }];
         });
@@ -26,9 +23,9 @@ const Todo: React.FC<Props> = ({ todos }) => {
 
     const isDisabled = inputValue.length === 0;
     return (
-        <form onSubmit={submit}>
+        <form onSubmit={submit} className="w-80 md:w-128" autoComplete="off">
             <TodoInput inputValue={inputValue} setInputValue={setInputValue} />
-            <TodoList todos={todoItems} />
+            <TodoList todos={todoItems} setTodoItems={setTodoItems} />
             <Button
                 type="submit"
                 text="Add New Task"

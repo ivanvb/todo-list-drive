@@ -7,6 +7,7 @@ const HomeScreen = () => {
     useEffect(() => {
         async function getSavedData() {
             const id = await GoogleDrive.getSavedData();
+            GoogleDrive.setId(id);
             const response = await GoogleDrive.getFileContent(id);
             const data = JSON.parse(response.body);
             setTodos(data);
@@ -19,7 +20,7 @@ const HomeScreen = () => {
         <>
             {todos !== null && (
                 <div>
-                    <h1 className="text-4xl font-black text-gray-800 text-center">ToDo List</h1>
+                    <h1 className="text-4xl font-black text-gray-800 text-center">TODO List</h1>
                     <Todo todos={todos} />
                 </div>
             )}

@@ -12,6 +12,7 @@ const TodoInput: React.FC<Props> = ({ inputValue, setInputValue }) => {
                 placeholder="New Task"
                 name="task"
                 value={inputValue}
+                maxLength={32}
                 onChange={(e) => {
                     setInputValue(e.target.value);
                 }}
